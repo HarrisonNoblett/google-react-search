@@ -48,16 +48,22 @@ function Home() {
   return(
       <div className="container">
           <div className="row">
-              <div className="col-md-6">
+              <div className="col-md-12">
                   <Jumbotron>
                       <h1>Google Books Search</h1>
                   </Jumbotron>
-                  <form>
+                  <form className="text-center">
                       <input 
                         onChange={handleInputChange}
                         name="title"
-                        placeholder="Author (required)"
+                        placeholder="Title (required)"
                       />
+                      <button 
+                        disabled={!(formObject.title)}
+                        onClick={handleFormSubmit}                   
+                      >
+                        Search Book
+                      </button>
                   </form>
               </div>
           </div>
