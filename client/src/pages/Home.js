@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Jumbotron from "../components/Jumbotron";
+import { List, ListItem } from "../components/List";
+import { Input, FormBtn } from "../components/form";
+import { Link } from "react-router-dom";
 import API from "../utils/API";
 
 function Home() {
@@ -42,18 +45,33 @@ function Home() {
                       <h1>Google Books Search</h1>
                   </Jumbotron>
                   <form className="text-center">
-                      <input 
+                      <Input 
                         onChange={handleInputChange}
                         name="title"
                         placeholder="Title (required)"
                       />
-                      <button 
+                      <FormBtn 
                         disabled={!(formObject.title)}
                         onClick={handleFormSubmit}                   
                       >
                         Search Book
-                      </button>
+                      </FormBtn>
                   </form>
+                  {books.length ? (
+                    <List>
+                      {books.map(book => (
+                        <ListItem key={book._id}>
+                          <Link to={"/books/" + book._id}>
+                            <strong>
+                              {book.title} by {book.author}
+                            </strong>
+                          </Link>
+                        </ListItem>
+                      ))}
+                    </List>
+                  ) : (
+                    <h3>No Results to Display</h3>
+                  )}
               </div>
           </div>
       </div>
