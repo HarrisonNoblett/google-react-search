@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import API from "../utils/API";
 import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
-import Card from "../components/card"
+//import Card from "../components/card"
 import { Link } from "react-router-dom";
 import { List, ListItem } from "../components/List";
 
