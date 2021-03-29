@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Jumbotron from "../components/Jumbotron";
 import { Input, FormBtn } from "../components/form";
 
 function Home() {
-  const [books, setBooks] = useState([])
-  const [formObject, setFormObject] = useState({})
+  const [search, setSearch] = useState()
 
   function handleInputChange(event) {
     const { name, value } = event.target;
-    setFormObject({ [name]: value})
+    setSearch({ [name]: value})
   };
 
   return(

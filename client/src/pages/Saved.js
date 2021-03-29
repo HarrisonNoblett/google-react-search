@@ -1,27 +1,8 @@
-import React, { useState } from "react";
-import API from "../utils/API";
+import React from "react";
 import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
-//import Card from "../components/card"
-import { Link } from "react-router-dom";
-import { List, ListItem } from "../components/List";
 
 function Saved() {
-    const [books, setBooks] = useState([])
-
-    function loadBooks() {
-        API.getBooks()
-          .then(res => 
-            setBooks(res.data)
-          )
-          .catch(err => console.log(err));
-      };
-
-    function deleteBook(id) {
-        API.deleteBook(id)
-          .then(res => loadBooks())
-          .catch(err => console.log(err));
-      }
   return(
       <div className="container">
           <div className="row">
@@ -31,23 +12,21 @@ function Saved() {
                   </Jumbotron>
               </div>
           </div>
-          <div className="row">
-            {books.length ? (
-              <List>
-                {books.map(book => (
-                  <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
-                      <strong>
-                        {book.title} by {book.author}
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => deleteBook(book._id)} />
-                  </ListItem>
-                ))}
-              </List>
-               ) : (
-                <h3 className="text-center">No Results to Display</h3>
-              )}
+          <div className="row rounded shadow-lg m-5 p-3">
+            <div className="col-md-12">
+              <p>
+                <h2>Title:</h2><h5>Lord of The Rings</h5>
+                <hr />
+              </p>
+              <p>
+                <h3>Author:</h3><h5>J. R. R. Tolkien</h5>
+                <hr />
+              </p>
+              <img src="https://upload.wikimedia.org/wikipedia/en/8/8a/The_Lord_of_the_Rings_The_Fellowship_of_the_Ring_%282001%29.jpg" className="img-thumbnail float-left mr-3" alt="Book"></img>
+              <p className="lead">The Lord of the Rings is the saga of a group of sometimes reluctant heroes who set forth to save their world from consummate evil. Its many worlds and creatures were drawn from Tolkien's extensive knowledge of philology and folklore.</p>
+              <DeleteBtn/>
+              <button className="btn btn-success mr-1" style={{ float: "right" }}>View</button>
+            </div>
           </div>
       </div>
   )
