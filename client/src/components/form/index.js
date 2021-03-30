@@ -10,8 +10,8 @@ export function Input(props) {
   );
 }
 
-export function FormBtn() {
+export function FormBtn(props) {
   return (
-    <button style={{ marginBottom: 10 }} className="btn btn-success">Search Book</button>
+    <button style={{ marginBottom: 10 }} {...props} className="btn btn-success">Search Book</button>
   );
 }

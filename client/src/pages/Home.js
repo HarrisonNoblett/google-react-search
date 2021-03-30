@@ -37,7 +37,7 @@ function Home(props) {
                         placeholder="Title (required)"
                       />
                       <FormBtn
-                        eventListener={handleFormSubmit}
+                        onClick={handleFormSubmit}
                       >
                         Search Book
                       </FormBtn>
@@ -48,7 +48,7 @@ function Home(props) {
             {results.length ? (
               <ul>
                 {console.log(props)}
-                {props.results.map(result => (
+                {results.map(result => (
                   <li>
                     <h2>Title:</h2><h5>{result.volumeInfo.title}</h5>
                       <hr />                
