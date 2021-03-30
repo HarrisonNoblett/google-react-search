@@ -6,6 +6,6 @@ const APIKEY = process.env.API_KEY;
 
 export default {
   search: function(query) {
-    return axios.get(BASEURL + query + APIKEY);
+    return axios.get(BASEURL + query.search + APIKEY);
   }
 };
